@@ -1,4 +1,4 @@
-'''Run this file for the DL part of DeepXSOZ'''
+'''Run this file for the DL part of noise and non noise classification'''
 
 import preprocessing
 import NoiseClassificationCNN
