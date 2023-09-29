@@ -222,7 +222,6 @@ for  testing_Subject = 1:numberSubjects
     PredictedLabels(NoiseICs)=0
     [G,H] = find(overallStats(:,4) > 0.9 & overallStats(:,2)==3)
     PredictedLabels(G)=3
-    PredictedLabels(setdiff(1:end,NoiseICs)) = 3;
     [Precision, Recall, F1Score, Accuracy, Specificity, TP, TN, FP, FN]=SOZDLMLResults(trueLabels,PredictedLabels)
   
     FinalResults=vertcat( FinalResults, [TP, TN, FP, FN])
