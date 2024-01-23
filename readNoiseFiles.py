@@ -38,7 +38,7 @@ class extractNoiseLabels():
                     print(f"Lines for number {number}:")
                     for line in filtered_lines:
              
-                      if f"_0{number}_" in line and " 0.0" in line:
+                      if(f"_00{number}_" in line or f"_0{number}_" in line) and " 0.0" in line:
                         print(line)
                         pattern = r'_([0-9]+)_\.png'
                         match = re.search(pattern, line)
