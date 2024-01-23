@@ -4,7 +4,7 @@ import re
 class extractNoiseLabels():
     def __init__(self, folder):
          self.filename = folder
-         extractNoiseICNumbers()
+         self.extractNoiseICNumbers()
 
     def extractNoiseICNumbers(self):
 
