@@ -225,6 +225,6 @@ for  testing_Subject = 1:numberSubjects
     [Precision, Recall, F1Score, Accuracy, Specificity, TP, TN, FP, FN]=SOZDLMLResults(trueLabels,PredictedLabels)
   
     FinalResults=vertcat( FinalResults, [TP, TN, FP, FN])
-    filename = 'ResultsWithoutNumClusters.xlsx';
+    filename = 'Results.xlsx';
     writematrix(FinalResults,filename,'Sheet',1);
 end
