@@ -88,7 +88,7 @@ for  testing_Subject = 1:numberSubjects
     
         dictionary2 = {'sin'};
         [mpdict2,nbvect2] = wmpdictionary(length(icaData{fileNum}),'lstcpt',dictionary2);
-        y2 = wmpalg('MPALG',icaData{fileNum},mpdict2,'itermax',35);
+        y2 = wmpalg('BMP',icaData{fileNum},mpdict2,'itermax',35);
         GiniS(fileNum) = GiniIndex(y2);
     
     
