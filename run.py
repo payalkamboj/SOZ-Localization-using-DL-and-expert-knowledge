@@ -6,7 +6,7 @@ import readNoiseFiles
 
 if __name__ == '__main__':
   
-    path='/Users/payal/Dropbox (ASU)/PCHData/fmridatasets/'
+    path='../../PCHData/fmridatasets/'
     subjectsID = 'ASUAI_0*'
     datasetHome = 'CNNDataTrainTest/'
     NoiseICLabels = 'CNNNoiselabels.txt'
