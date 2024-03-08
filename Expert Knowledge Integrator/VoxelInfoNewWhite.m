@@ -6,8 +6,8 @@ global minPoints epsilon imContour factorM
 minPoints = 5;
 epsilon = 2;
 num_patients = 52;
-folder = dir('../../PCHData/fmridatasets/ASUAI_0*');
-fileSummary = dir('../../PCHData/fmridatasets/*ASUAI_0*'); 
+folder = dir('../../Data/fmridatasets/ASUAI_0*');
+fileSummary = dir('../../Data/fmridatasets/*ASUAI_0*'); 
 TrainingData = [];
 TestData = []; 
 trueLabel = [];
@@ -33,10 +33,10 @@ for foldIMK = 1:num_patients
     foldI = PatID(foldIMK);
     factorM = factorX(foldI);
     fold = foldA(foldI); 
-    files = dir(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/*_thresh*']));
+    files = dir(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/*_thresh*']));
     firstThresh = files(1);
     imgName = 'IC_1_thresh.png';
-    im = imread(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/' imgName]));
+    im = imread(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/' imgName]));
     %imshow(im)
     templateImage = imread('R.png');
     [X, Y, size_X, size_Y,num_Row,num_Col] = automateSlicing(im,templateImage);
@@ -70,10 +70,10 @@ for foldIMK = 1:52
     numRow = numRowInd(foldI);
     labelingVector{foldI} = [];
     fold = foldA(foldI); 
-    files = dir(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/*_thresh*']));
+    files = dir(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/*_thresh*']));
     n = length(files) ;
     Interest = [];
-    listing = dir(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/t*.txt']));
+    listing = dir(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/t*.txt']));
     sigLength = 295;
     freq = (1:sigLength).*0.08475;
     tThresh = 70;
@@ -97,13 +97,13 @@ for foldIMK = 1:52
     if(need)
         for fileNum = 1:n
             tic
-            icaData{fileNum} = dlmread(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/' listing(fileNum).name]));
+            icaData{fileNum} = dlmread(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/' listing(fileNum).name]));
             filename = files(fileNum).name;
             fileNameTemp = sscanf(filename,'IC_%d_thresh');
              if(fileNameTemp == 18)
                  disp('here')
              end
-            im = imread(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/' filename]));
+            im = imread(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/' filename]));
             startX = Scalings(foldI,1); 
             s_value = Scalings(foldI,1);
             startY = Scalings(foldI,2);
@@ -171,13 +171,13 @@ for foldIMK = 1:52
 
         for fileNum = 1:n
             tic
-            icaData{fileNum} = dlmread(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/' listing(fileNum).name]));
+            icaData{fileNum} = dlmread(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/' listing(fileNum).name]));
             filename = files(fileNum).name;
             fileNameTemp = sscanf(filename,'IC_%d_thresh');
              if(fileNameTemp == 18)
                  disp('here')
              end
-            im = imread(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/' filename]));
+            im = imread(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/' filename]));
             imshow(im);
             startX = Scalings(foldI,1); 
             s_value = Scalings(foldI,1);
@@ -252,14 +252,14 @@ for foldIMK = 1:52
    
     for fileNum = 1:n
         tic
-        icaData{fileNum} = dlmread(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/' listing(fileNum).name]));
+        icaData{fileNum} = dlmread(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/' listing(fileNum).name]));
         filename = files(fileNum).name;
         fileNameTemp = sscanf(filename,'IC_%d_thresh');
         [G H] = find(problem == fileNameTemp);
          if(~isempty(G))
              disp('here');
          end
-        im = imread(strcat(['../../PCHData/fmridatasets/' folder(fold).name '/MO/report/' filename]));
+        im = imread(strcat(['../../Data/fmridatasets/' folder(fold).name '/MO/report/' filename]));
         %imshow(im);
         startX = Scalings(foldI,1); 
         s_value = Scalings(foldI,1);
@@ -677,7 +677,7 @@ for foldIMK = 1:52
     %writetable(T,'labelsV2.xlsx');
     path = fileSummary(fold).name;
     path = strcat('../../PCHData/fmridatasets/labels/',path);
-    %[num,text,raw] = xlsread(strcat(['../../PCHData/IClabelsexcel_zero_to_three/' fileSummary(fold).name]));
+    %[num,text,raw] = xlsread(strcat(['../../Data/IClabelsexcel_zero_to_three/' fileSummary(fold).name]));
     data = readmatrix(path, 'NumHeaderLines', 1);
     num = data(:,2);
      
