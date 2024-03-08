@@ -2,13 +2,13 @@
 
 The dataset is expected to be in the following structure:
         `/path/to/fmridatasets/        
-                  ASUAI_001/
+                  AI_001/
                     MO/
                       report/
                          -f1.png
                          -IC_1_thresh.png
                          -t1.png
-                 ASUAI_002/
+                 AI_002/
                      MO/
                       report/
                          -f1.png
@@ -16,8 +16,8 @@ The dataset is expected to be in the following structure:
                          -t1.png
                  ...
                  labels/
-                    -ASUAI_001.csv
-                    -ASUAI_002.csv`
+                    -AI_001.csv
+                    -AI_002.csv`
       
 For Noise and Non noise Independent Components (IC) classification, run "run.py". This will preprocess the dataset, create train and test folders in the following structure: 
 
