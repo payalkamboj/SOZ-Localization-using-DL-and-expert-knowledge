@@ -51,11 +51,11 @@ for  testing_Subject = 1:numberSubjects
     %workspaces created from 'VoxelInforNewWhite.m'
     load(strcat(['Workspace-' folder(foldIMKV).name 'V4.mat'])); 
     
-    folder = dir('../../PCHData/fmridatasets/ASUAI_0*');
+    folder = dir('../../Data/fmridatasets/ASUAI_0*');
     
-    files = dir(strcat(['../../PCHData/fmridatasets/' folder(foldIMKV).name '/MO/report/*_thresh*']));
+    files = dir(strcat(['../../Data/fmridatasets/' folder(foldIMKV).name '/MO/report/*_thresh*']));
     n = length(files) ;
-    listing = dir(strcat(['../../PCHData/fmridatasets/' folder(foldIMKV).name '/MO/report/t*.txt']));
+    listing = dir(strcat(['../../Data/fmridatasets/' folder(foldIMKV).name '/MO/report/t*.txt']));
     tic
     numberOfClusters = [];
     numberOfClustersP = [];
@@ -64,7 +64,7 @@ for  testing_Subject = 1:numberSubjects
     GiniS = [];
     for fileNum = 1:n
         filename = files(fileNum).name;
-        icaData{fileNum} = dlmread(strcat(['../../PCHData/fmridatasets/' folder(foldIMKV).name '/MO/report/' listing(fileNum).name]));
+        icaData{fileNum} = dlmread(strcat(['../../Data/fmridatasets/' folder(foldIMKV).name '/MO/report/' listing(fileNum).name]));
     
         %% BOLD SIGNAL SPARSITY IN ACTIVELET DOMAIN
         %extract activity related signal component from time-courses
@@ -212,9 +212,9 @@ for  testing_Subject = 1:numberSubjects
     subjectNumber = regexp(subjectName,'\d*','Match');
     subjectNumber= str2double(subjectNumber);
     
-    SubjectNoiseICs_Step1 = dir(strcat(['../../PCHData/DeepLearning/code/PatientLevelTestResults/HybridFinalResults/Noise' num2str(subjectNumber) '.txt']));
+    SubjectNoiseICs_Step1 = dir(strcat(['../../Data/DeepLearning/code/PatientLevelTestResults/HybridFinalResults/Noise' num2str(subjectNumber) '.txt']));
     SubjectNoiseICs_Step1 = SubjectNoiseICs_Step1.name;
-    subjectFileName = strcat(['../../PCHData/DeepLearning/code/PatientLevelTestResults/HybridFinalResults/' SubjectNoiseICs_Step1]);
+    subjectFileName = strcat(['../../Data/DeepLearning/code/PatientLevelTestResults/HybridFinalResults/' SubjectNoiseICs_Step1]);
     fileID = fopen(subjectFileName,'r');
     NoiseICs = fscanf(fileID,'%s')
     NoiseICs = str2num(NoiseICs);
