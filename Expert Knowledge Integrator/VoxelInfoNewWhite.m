@@ -676,8 +676,7 @@ for foldIMK = 1:52
     T5 = table(filenameString',label5);
     %writetable(T,'labelsV2.xlsx');
     path = fileSummary(fold).name;
-    %path = strcat('/Users/payalkamboj/Dropbox (ASU)/PCHData/fmridatasets/labels/',path);
-    path = strcat('C:/Users/pkamboj/Dropbox (ASU)/PCHData/fmridatasets/labels/',path);
+    path = strcat('../../PCHData/fmridatasets/labels/',path);
     %[num,text,raw] = xlsread(strcat(['../../PCHData/IClabelsexcel_zero_to_three/' fileSummary(fold).name]));
     data = readmatrix(path, 'NumHeaderLines', 1);
     num = data(:,2);
