@@ -7,7 +7,7 @@ import readNoiseFiles
 if __name__ == '__main__':
   
     path='../../Data/fmridatasets/'
-    subjectsID = 'ASUAI_0*'
+    subjectsID = 'AI_0*'
     datasetHome = 'CNNDataTrainTest/'
     NoiseICLabels = 'CNNNoiselabels.txt'
     preprocess = preprocessing.PreprocessData(path,subjectsID)
